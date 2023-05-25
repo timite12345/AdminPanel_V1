@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Facture</title>
+    <title>Ivoire Secours:Facture</title>
     <link rel="stylesheet" href="{{public_path('style.css')}}" media="all" />
   </head>
   <body>

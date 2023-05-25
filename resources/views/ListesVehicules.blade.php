@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <x-app-layout>
@@ -37,6 +37,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-header"></li>
           <li class="nav-item">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <p>
                 Pages
@@ -55,30 +56,31 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('AjouterMission') }}" class="nav-link">
+                <a href="{{ url('Accueil') }}" class="nav-link">
                   <i class="fa fa-ambulance"></i>
-                  <p> Gérer Mission</p>
+                  <p> Gérer Missions</p>
                 </a>
               </li>
                <li class="nav-item">
                 <a href="{{ url('ListesChauffeur') }}" class="nav-link">
                   <i class="fa fa-user"></i>
-                  <p> Gérer Chauffeur</p>
-                </a>
-              </li>
-                 <li class="nav-item">
-                <a href="{{ url('ListesFactures') }}" class="nav-link">
-                  <i class="fas fa-edit	"></i>
-                  <p> Gérer Factures</p>
-                </a>
-              </li>
-                 <li class="nav-item">
-                <a href="{{ url('AjouterVehicule') }}" class="nav-link">
-                  <i class="fas fa-car-side	"></i>
-                  <p> Gérer Parc</p>
+                  <p> Gérer Chauffeurs </p>
                 </a>
               </li>
 
+                <li class="nav-item">
+                <a href="{{ url('ListesFactures') }}" class="nav-link">
+                  <i class="fa fa-edit"></i>
+                  <p> Gérer Factures </p>
+                </a>
+              </li>
+
+                <li class="nav-item">
+                <a href="{{ url('ListesVehicules') }}" class="nav-link">
+                  <i class="fa fa-car-side"></i>
+                  <p> Gérer Parc </p>
+                </a>
+              </li>
           </li>
 
       </nav>
@@ -95,8 +97,7 @@
     </div>
     <!-- /.content-header -->
 
-    <!-- Main content -->
-    <section class="content">
+<section class="content">
       <div class="container-fluid">
         <!-- Info boxes -->
         <div class="row">
@@ -107,8 +108,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Ambulances</span>
                 <span class="info-box-number">
-                  {{ DB::table('vehicules')->count() }}
-                  {{--  <small>%</small>  --}}
+                  {{ DB::table('vehicules')->count()  }}
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -122,7 +122,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Hopitaux</span>
-                <span class="info-box-number">{{ DB::table('hopitals')->count() }}</span>
+                <span class="info-box-number">{{ DB::table('hopitals')->count()  }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -139,7 +139,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Chauffeurs</span>
-                <span class="info-box-number">{{ DB::table('chauffeurs')->count() }}</span>
+                <span class="info-box-number">{{ DB::table('chauffeurs')->count()  }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -152,7 +152,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Mission effectuées</span>
-                <span class="info-box-number">{{ DB::table('missions')->count() }}</span>
+                <span class="info-box-number">{{ DB::table('missions')->count()  }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -160,47 +160,38 @@
           </div>
           <!-- /.col -->
         </div>
-        <!-- /.row -->
-
+    <!-- Main content -->
 
 <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-2">
           <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
              <p class="bg-white-700 font-semibold text-lg text-gray-800 leading-tight">
-            Listes des Missions
-            <a href="{{ route('NewMission') }}" role="button" class="bg-blue-400 hover:bg-blue-700 text-white
-            font-bold py-1 px-2 rounded float-right">Ajouter nouvelles Missions</a>
+            Listes des Véhicules
+            <a href="{{ url('AjouterHopital') }}" role="button" class="bg-blue-400 hover:bg-blue-700 text-white
+            font-bold py-1 px-2 rounded float-right">Ajouter Véhicule</a>
         </p>
             <table class="table-fixed">
               <thead>
                 <tr>
                   <th class="px-4 py-2">Id</th>
-                  <th class="px-4 py-2">Prenom</th>
-                  <th class="px-4 py-2">Date_Dep</th>
-                  <th class="px-4 py-2">Adresse_Dep</th>
-                  <th class="px-4 py-2">Adresse_Arri</th>
-                  <th class="px-4 py-2">Chauffeur</th>
-                  <th class="px-4 py-2">Action</th>
+                  <th class="px-4 py-2">Immatriculation</th>
+                  <th class="px-4 py-2">estLibre</th>
+
                 </tr>
               </thead>
               <tbody>
-                @foreach($missions as $mission)
+                @foreach($vehicules as $vehicule)
                   <tr>
-                    <td class="select-none px-4 py-3">{{ $mission->id}}</td>
-                    <td class="select-none px-4 py-3">{{ $mission->prenom}}</td>
-                    <td class="select-none px-4 py-3">{{ $mission->date_Dep }}</td>
-                    <td class="select-none px-4 py-3">{{ $mission->adresse_Dep }}</td>
-                    <td class="select-none px-4 py-3">{{ $mission->adresse_Arriv }}</td>
-                    <td class="select-none px-4 py-3">{{ $mission->idChauffeur }}</td>
-
+                    <td class="select-none px-4 py-3">{{ $vehicule->id}}</td>
+                    <td class="select-none px-4 py-3">{{ $vehicule->immatriculation }}</td>
+                    <td class="select-none px-4 py-3">{{ $vehicule->estLibre}}</td>
                     <td class="px-4 py-3">
-                        <a href="{{ route('Details', $mission->id) }}" role="button"
+                        <a href="{{ route('Details', $vehicule->id) }}" role="button"
                         class="btn btn-sm bg-teal mr-2"><i class="fas fa-eye"></i></a>
-                          <a href="{{ route('Edit', $mission->id) }}" role="button"
+                          <a href="{{ route('Edit', $vehicule->id) }}" role="button"
                         class="btn btn-sm bg-primary mr-2"><i class="fas fa-edit"></i></a>
-                         <a href="{{route('Supprimer',$mission->id)}}" role="button"
+                         <a href="{{route('destroyehopital',$vehicule->id)}}" role="button"
                     class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-
                     </td>
                   </tr>
                   @endforeach

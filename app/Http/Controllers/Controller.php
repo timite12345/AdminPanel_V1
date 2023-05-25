@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Hopital;
 use App\Models\Mission;
+use Illuminate\Support\Facades\DB;
 
 
 class Controller extends BaseController
@@ -20,7 +21,7 @@ class Controller extends BaseController
     public function NewMission(){
     $hopitals= Hopital::all();
     $chauffeurs=Chauffeur::all();
-    $missions = Mission::all();
+    $missions = Mission::all()->count();
     $factures = Facture::all();
     return view('AjouterMission',
         [
@@ -80,4 +81,5 @@ public function show()
         Mission::create($data);
         return redirect('/Accueil');
     }
+
 }

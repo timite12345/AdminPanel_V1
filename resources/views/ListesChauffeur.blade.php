@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {{--  <title>AdminLTE 3 | Dashboard 2</title>  --}}
+  <title>Ivoire Secours</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -75,7 +75,7 @@
               </li>
 
                 <li class="nav-item">
-                <a href="{{ url('ListesVehicule') }}" class="nav-link">
+                <a href="{{ url('ListesVehicules') }}" class="nav-link">
                   <i class="fa fa-car-side"></i>
                   <p> Gérer Parc </p>
                 </a>
@@ -109,7 +109,7 @@
               <div class="info-box-content">
                 <span class="info-box-text">Ambulances</span>
                 <span class="info-box-number">
-                  100
+                  {{ DB::table('vehicules')->count()  }}
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -123,7 +123,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Hopitaux</span>
-                <span class="info-box-number">50</span>
+                <span class="info-box-number">{{ DB::table('hopitals')->count()  }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -140,7 +140,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Chauffeurs</span>
-                <span class="info-box-number">200</span>
+                <span class="info-box-number">{{ DB::table('chauffeurs')->count()  }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -153,7 +153,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Mission effectuées</span>
-                <span class="info-box-number">70</span>
+                <span class="info-box-number">{{ DB::table('missions')->count()  }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>

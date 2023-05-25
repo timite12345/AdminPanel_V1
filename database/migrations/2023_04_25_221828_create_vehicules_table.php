@@ -13,10 +13,7 @@ return new class extends Migration
     {
         Schema::create('vehicules', function (Blueprint $table) {
             $table->id();
-             $table->string('immatriculation')->unique()->nullable();
-            $table->string('marque')->nullable();
-            $table->string('permis')->nullable();
-            $table->text('Desc')->nullable();
+             $table->string('immatriculation')->unique();
             $table->boolean('estLibre')->default(true);
             $table->timestamps();
         });

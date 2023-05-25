@@ -13,31 +13,19 @@
 <body class="form-v9">
 	<div class="page-content">
 		<div class="form-v9-content" style="background-image: url('images/form-v9.jpg')">
-			<form class="form-detail" action="{{route('NewHopital')}}" method="POST">
+			<form class="form-detail" action="{{route('NewVehicule')}}" method="POST">
                 @csrf
-				<h2>Enregistrer Hopital</h2>
+				<h2>Enregistrer Véhicule</h2>
 				<div class="form-row-total">
 					<div class="form-row">
-						<input type="text" name="nom" id="full-name" class="input-text" placeholder="Nom" required>
+						<input type="text" name="immatriculation" id="full-name" class="input-text" placeholder="Immatriculation" required>
 					</div>
 					<div class="form-row">
-						<input type="text" name="adresse" id="your-email" class="input-text" placeholder="Adresse">
+						<input type="text" name="estLibre" id="your-email" class="input-text" placeholder="estLibre">
 					</div>
 				</div>
-                <div class="form-row-total">
-					<div class="form-row">
-						<input type="text" name="email" id="full-name" class="input-text" placeholder="Email" required>
-					</div>
-					<div class="form-row">
-						<input type="text" name="tel" id="your-email" class="input-text" placeholder="Tel" required">
-					</div>
-				</div>
-                <div class="form-row-total">
-					<div class="form-row">
-						<input type="text" name="type" id="full-name" class="input-text" placeholder="Type" required">
-					</div>
 
-				</div>
+
 				<div class="form-row-total">
 				</div>
 				<div class="form-row-last">
