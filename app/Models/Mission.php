@@ -19,6 +19,7 @@ class Mission extends Model
         'adresse_Arriv',
         'condTransp',
         'idChauffeur',
+        'ChaufSecond',
         'heureDebut',
         'heureFin',
     ];

@@ -70,12 +70,13 @@ public function show()
 
         $missions->update($request->all());
 
-        return back()->with('message','Achat modifié avec succès');
+        return back()->with('message','modifié avec succès');
     }
 
  public function CreateNewMission(Request $request){
 
     $data= $request->all();
+        //dd($data);
         Mission::create($data);
         return redirect('/Accueil');
     }

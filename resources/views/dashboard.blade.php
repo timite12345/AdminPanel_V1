@@ -49,7 +49,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('ListesHopital') }}" class="nav-link">
+                <a href="{{ url('ListesHopitals') }}" class="nav-link">
                   <i class="fa fa-medkit"></i>
                   <p>Ajouter Hopital</p>
                 </a>

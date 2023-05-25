@@ -34,16 +34,13 @@
 
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
-
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../assets/js/config.js"></script>
-
+ <script src="../assets/js/config.js"></script>
+{{--
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-
+    window.dataLayer = window.dataLayer || [];  --}}
+{{--
     function gtag() {
       dataLayer.push(arguments);
     }
@@ -51,7 +48,7 @@
     gtag('config', 'GA_MEASUREMENT_ID');
     </script>
     <!-- Custom notification for demo -->
-    <!-- beautify ignore:end -->
+    <!-- beautify ignore:end -->  --}}
 
 </head>
 
@@ -82,13 +79,22 @@
                   </select>
           </div>
           <div class="mb-3">
-            <label class="form-label" for="basic-default-company">Choisir Chauffeur</label>
+            <label class="form-label" for="basic-default-company">Choisir Chauffeur Principal</label>
             <select id="idChauffeur" class="form-control select2" name="idChauffeur" style="width: 100%;">
-            <option selected="selected">Selectionner un Chauffeur</option>
+            <option selected="selected">Selectionner un Chauffeur Principal</option>
                      @foreach($chauffeurs as $chauffeur)
                     <option value="{{$chauffeur->nom}}">{{$chauffeur->nom}}</option>
                     @endforeach
 
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="basic-default-company">Choisir Chauffeur Secondaire</label>
+            <select id="ChaufSecond" class="form-control select3" name="ChaufSecond" style="width: 100%;">
+            <option selected="selected">Selectionner un Chauffeur Secondaire</option>
+                     @foreach($chauffeurs as $chauffeur)
+                    <option value="{{$chauffeur->nom}}">{{$chauffeur->nom}}</option>
+                    @endforeach
             </select>
           </div>
           <div class="mb-3">

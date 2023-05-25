@@ -26,42 +26,32 @@ Route::get('/auth/register', function () {
     return view('auth.register');
 });
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// });
 
 Route::get('/AddNewChauffeur', function () {
     return view('AddNewChauffeur');
 });
 
-Route::get('/ListesChauffeur', function () {
-    return view('ListesChauffeur');
-});
-
-Route::get('/PdfFacture', function () {
-    return view('PdfFacture');
-});
-
-// Route::get('/ListesHopitals', function () {
-//     return view('ListesHopitals');
+// Route::get('/ListesChauffeur', function () {
+//     return view('ListesChauffeur');
 // });
-// // //
+
+// Route::get('/PdfFacture', function () {
+//     return view('PdfFacture');
+// });
+
+
 
 Route::get('/AjouterHopital', function () {
     return view('AjouterHopital');
 });
-// //
-Route::get('/AjouterPatient', function () {
-    return view('AjouterPatient');
-});
-// //
-// Route::get('/EditerFactures', function () {
-//     return view('EditerFactures');
+
+// Route::get('/AjouterPatient', function () {
+//     return view('AjouterPatient');
 // });
-// // //
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
